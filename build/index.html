@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body
+    class="bg-gray-100 flex justify-center align-center pt-12 pr-2 pl-2 pb-10"
+  >
+    <div
+      class="bg-white pt-10 pr-4 pb-10 pl-4 rounded-t-2xl rounded-bl-2xl rounded-br-[120px] max-w-5xl"
+    >
+      <form action="" class="flex mb-7 max-w-2xl">
+        <div class="flex max-w-full md:ml-7">
+          <div class="flex flex-col">
+            <label
+              for="day"
+              class="tracking-widest font-medium text-xs text-slate-500"
+              >DAY</label
+            >
+            <input
+              type="number"
+              id="day"
+              placeholder="DD"
+              class="input day-input border-2 w-full pt-2 pb-2 pl-3 pr-3 rounded-lg font-semibold text-2xl mt-1 border-grey-100"
+            />
+            <p class="text-red-300 italic mt-2 text-sm hidden">
+              This field is required
+            </p>
+          </div>
+          <div class="flex flex-col ml-4">
+            <label
+              for="month"
+              class="tracking-widest font-medium text-xs text-slate-500"
+              >MONTH</label
+            >
+            <input
+              type="number"
+              id="month"
+              placeholder="MM"
+              class="input month-input border-2 w-full pt-2 pb-2 pl-3 pr-3 rounded-lg font-semibold text-2xl mt-1 border-grey-100"
+            />
+            <p class="text-red-300 italic mt-2 text-sm hidden">
+              This field is required
+            </p>
+          </div>
+          <div class="flex flex-col ml-4">
+            <label
+              for="year"
+              class="input tracking-widest font-medium text-xs text-slate-500"
+              >YEAR</label
+            >
+            <input
+              type="number"
+              id="year"
+              placeholder="YYYY"
+              class="year-input input border-grey-100 border-2 w-full pt-2 pb-2 pl-2 pr-2 rounded-lg font-semibold text-2xl mt-1"
+            />
+            <p class="text-red-300 italic mt-2 text-sm hidden">
+              This field is required
+            </p>
+          </div>
+          <input type="text" />
+          <div class="w-2/3 h-full hidden md:inline"></div>
+        </div>
+      </form>
+
+      <div
+        class="bg-white flex items-center justify-center max-w-full md:ml-7 md:mr-7"
+      >
+        <div class="h-1 w-2/3 sm:w-3/4 bg-gray-100"></div>
+        <div class="flex items-center w-full md:flex-row-reverse">
+          <div class="bg-violet-600 rounded-full">
+            <button class="p-4 btn-submit">
+              <img src="./images/icon-arrow.svg" alt="" class="" />
+            </button>
+          </div>
+          <div class="h-1 w-full bg-gray-100"></div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col items-start justify-center mt-10 ml-4 max-w-full md:ml-7"
+      >
+        <div class="flex items-center">
+          <h1
+            class="year-el font-extrabold text-6xl text-violet-500 italic md:text-7xl"
+          >
+            --
+          </h1>
+          <p class="font-extrabold text-6xl italic ml-3 md:text-7xl">years</p>
+        </div>
+        <div class="flex items-center mt-2">
+          <h1
+            class="month-el font-extrabold text-6xl text-violet-500 italic md:text-7xl"
+          >
+            --
+          </h1>
+          <p class="font-extrabold text-5xl italic ml-3 md:text-7xl">months</p>
+        </div>
+        <div class="flex items-center mt-2">
+          <h1
+            class="day-el font-extrabold text-6xl text-violet-500 italic md:text-7xl"
+          >
+            --
+          </h1>
+          <p class="font-extrabold text-5xl italic ml-3 md:text-7xl">days</p>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
