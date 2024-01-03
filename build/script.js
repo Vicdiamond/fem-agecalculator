@@ -78,6 +78,62 @@ const validateYearField = yearInput => {
   return removeEmptyErrorMsg(yearInput)
 }
 
+const checkFutureDate = function () {
+  if (
+    new Date(+yearInput.value, +monthInput.value - 1, +dayInput.value) > now
+  ) {
+    errorMsgEmpty(dayInput)
+    dayInput.nextElementSibling.innerText = 'Must be a valid day'
+    errorMsgEmpty(monthInput)
+    monthInput.nextElementSibling.innerText = 'Must be a valid month'
+    return
+  }
+  // if (
+  //   +yearInput.value === now.getFullYear() &&
+  //   +monthInput.value - 1 > now.getMonth()
+  // ) {
+  //   console.log('working')
+  //   // removeEmptyErrorMsg(dayInput)
+  //   // errorMsgEmpty(monthInput)
+  //   // monthInput.nextElementSibling.innerText = 'Day must be a valid month'
+  //   // return
+  // }
+
+  // if (
+  //   +yearInput.value === now.getFullYear() &&
+  //   +monthInput.value - 1 === now.getMonth() &&
+  //   +dayInput.value > now.getDate()
+  // ) {
+  //   removeEmptyErrorMsg(monthInput)
+  //   errorMsgEmpty(dayInput)
+  //   dayInput.nextElementSibling.innerText = 'Day must be a valid day'
+  //   return
+  // }
+  // if (
+  //   new Date(+yearInput.value, +monthInput.value - 1, +dayInput.value) > now &&
+  //   !+monthInput.value - 1 > now.getMonth() &&
+  //   +dayInput.value > now.getDate()
+  // ) {
+  //   removeEmptyErrorMsg(monthInput)
+  //   console.log('working')
+  //   return
+  // }
+  // if (
+  //   new Date(+yearInput.value, +monthInput.value - 1, +dayInput.value) > now &&
+  //   +monthInput.value - 1 > now.getMonth() &&
+  //   !+dayInput.value > now.getDate()
+  // ) {
+  //   removeEmptyErrorMsg(dayInput)
+  //   console.log('working')
+  //   return
+  // }
+
+  removeEmptyErrorMsg(dayInput)
+  return removeEmptyErrorMsg(monthInput)
+}
+// console.log('hello')
+
+// Functionality for the app
 const calcTotalDaysPassed = (date1, date2) => {
   const days = Math.floor(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24))
   return days
@@ -120,7 +176,7 @@ const calcRemainDays = function (
 }
 
 inputs.forEach(input => {
-  input.addEventListener('mouseout', e => {
+  input.addEventListener('focusout', () => {
     if (input.value === '') errorMsgEmpty(input)
   })
 })
@@ -162,9 +218,12 @@ monthInput.addEventListener('change', () => validateMonthField(monthInput))
 yearInput.addEventListener('change', () => validateYearField(yearInput))
 
 btnSubmit.addEventListener('click', function () {
+  checkFutureDate()
+
   inputs.forEach(input => {
     if (input.value === '') errorMsgEmpty(input)
   })
+
   if (
     dayInput.classList.contains('border-red-300') ||
     monthInput.classList.contains('border-red-300') ||
